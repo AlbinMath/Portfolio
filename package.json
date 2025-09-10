@@ -18,16 +18,21 @@
     "@eslint/js": "^9.35.0",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
     "@vitejs/plugin-react": "^5.0.2",
     "eslint": "^9.35.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
-    "typescript": "^5.2.2",
-    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "typescript": "^5.9.2",
     "vite": "^7.1.4"
   },
   "engines": {
     "node": "18.x"
-  }
+  },
+  "scripts": {
+  "prepare": "npm run build",
+  "postinstall": "npm run build"
+  
+}
 }

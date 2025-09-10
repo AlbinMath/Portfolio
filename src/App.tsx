@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, Phone, Github, Linkedin, MapPin, Award, Code, Users, Monitor, Shield } from 'lucide-react';
 import './App.css';
 
