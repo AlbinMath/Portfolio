@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "npx tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "npm run build",
+  "postinstall": "npm run build"
   },
   "dependencies": {
     "lucide-react": "^0.543.0",
@@ -28,11 +30,8 @@
     "vite": "^7.1.4"
   },
   "engines": {
-    "node": "18.x"
-  },
-  "scripts": {
-  "prepare": "npm run build",
-  "postinstall": "npm run build"
-  
+    "node": "20.x"
+  }
+
 }
-}
+
