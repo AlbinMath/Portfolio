@@ -1,0 +1,90 @@
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
+
+interface ExperienceItemProps {
+  title: string
+  company: string
+  location: string
+  period: string
+  responsibilities: string[]
+  index: number
+}
+
+const ExperienceItem = ({
+  title,
+  company,
+  location,
+  period,
+  responsibilities,
+  index,
+}: ExperienceItemProps) => {
+  const { ref, isVisible } = useScrollAnimation({
+    threshold: 0.2,
+  })
+
+  return (
+    <div
+      ref={ref}
+      className={`bg-white rounded-xl p-8 shadow-lg border-l-4 border-primary-600 hover-lift transition-all duration-500 ${
+        isVisible
+          ? 'opacity-100 animate-slide-in-right'
+          : 'opacity-0 translate-x-10'
+      }`}
+      style={{ animationDelay: `${index * 0.2}s` }}
+    >
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+        <div className="flex-1">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+            {title}
+          </h3>
+          <p className="text-xl text-primary-600 font-semibold mb-1">{company}</p>
+          <p className="text-gray-600 mb-2">
+            <svg
+              className="w-4 h-4 inline-block mr-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+            {location}
+          </p>
+        </div>
+        <div className="mt-4 md:mt-0">
+          <span className="inline-block px-4 py-2 bg-primary-600 text-white rounded-full font-semibold transition-transform duration-300 hover:scale-110">
+            {period}
+          </span>
+        </div>
+      </div>
+
+      <div className="mt-6">
+        <h4 className="font-semibold text-gray-900 mb-3 text-lg">
+          Responsibilities & Achievements:
+        </h4>
+        <ul className="list-disc list-inside space-y-2 text-gray-700">
+          {responsibilities.map((responsibility, respIndex) => (
+            <li
+              key={respIndex}
+              className="leading-relaxed transition-colors duration-300 hover:text-primary-600"
+            >
+              {responsibility}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+export default ExperienceItem
+
